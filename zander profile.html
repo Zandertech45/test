@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body {
+            background-color: #0f1923;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        #sidebar {
+            background-color: #2d0386;
+            height: 100vh;
+            width: 1vw;
+            position: fixed;
+        }
+
+        #content {
+            height: 100vh;
+            width: 99vw;
+            position: relative;
+            overflow: auto; /* Add overflow property */
+        }
+        
+
+        #banner {
+            width: 99vw;
+            height: 40vh;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        #overlay {
+            position: absolute;
+            top: 0;
+            right: 1%;
+            height: 40vh;
+            width: 97vw;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        #avatarBox:hover {
+            width: 25vh;
+            height: 25vh;
+            opacity: 0.9;
+        }
+
+        #profileContent {
+            position: absolute;
+            top: 60%;
+            transform: translateY(-25%);
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-top: 0;
+        }
+
+        .social-icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-basis: 33.33%;
+        }
+
+        .box {
+            border: 1px solid #22349782;
+            padding: 20px;
+            margin: 50px;
+        }
+
+        .icon {
+            height: 60px;
+            width: 60px;
+            margin: 10px;
+            padding: 10px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .icon:hover {
+            opacity: 0.9;
+            transform: scale(1.1);
+            border-radius: 5px;
+            background-color: #14d4e1;
+        }
+
+        .left-align {
+            text-align: center;
+        }
+
+        .center-align {
+            text-align: center;
+        }
+
+        .right-align {
+            text-align: center;
+        }
+    </style>
+    <script>
+        // JavaScript code
+        document.addEventListener("DOMContentLoaded", function() {
+            const icons = document.querySelectorAll(".icon");
+
+            function handleIconMouseOver(e) {
+                // Increase size of the hovered icon
+                this.style.transform = "scale(2.3)";
+
+                // Make nearby icons disappear/fade
+                icons.forEach(icon => {
+                    if (icon !== this) {
+                        icon.style.opacity = "0.1";
+                    }
+                });
+            }
+
+            function handleIconMouseOut(e) {
+                // Restore size of the icon
+                this.style.transform = "scale(1)";
+
+                // Restore opacity of all icons
+                icons.forEach(icon => {
+                    icon.style.opacity = "1";
+                });
+            }
+
+            // Attach event listeners to icons
+            icons.forEach(icon => {
+                icon.addEventListener("mouseover", handleIconMouseOver);
+                icon.addEventListener("mouseout", handleIconMouseOut);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="sidebar"></div>
+    <div id="content">
+        <img id="banner" src="sky2.jpg">
+        <div id="overlay"></div>
+        <div id="avatarBox" class="pointer"></div>
+        <div id="profileContent">
+            <h1>Zander</h1>
+            <h3>Open in Desktop/Desktop Mode for Best View</h3>
+            <div class="social-icons">
+                <div class="row">
+                    <div class="column left-align">
+                        <div class="box">
+                            <h2>Socials</h2>
+                            <a href="" target="_blank">
+                                <img src="discord.jpeg" class="icon" alt="Discord">
+                            </a>
+                            <a href="" target="_blank">
+                                <img src="insta.jpeg" class="icon" alt="Instagram">
+                            </a>
+                            <a href="" target="_blank">
+                                <img src="steam.jpg" class="icon" alt="Steam">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column center-align">
+                        <div class="box">
+                            <h2>Games</h2>
+                            <a href="" target="_blank">
+                                <img src="chess2.jpeg" class="icon" alt="Chess">
+                            </a>
+                            <a href="" target="_blank">
+                                <img src="genshin2.jpeg" class="icon" alt="Genshin Impact">
+                            </a>
+                            <a href="" target="_blank">
+                                <img src="valorant.png" class="icon" alt="Valorant">
+                            </a>
+                            <a href="" target="_blank">
+                                <img src="li.png" class="icon" alt="">
+                            </a>
+                            <a href="#" target="_blank">
+                                <img src="pubg.png" class="icon" alt="">
+                            </a> 
+                            <a href="#" target="_blank">
+                                <img src="freefire.jpg" class="icon" alt="">
+                            </a>
+                            <a href="#" target="_blank">
+                                <img src="csgo.png" class="icon" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column right-align">
+                        <div class="box">
+                            <h2>Others</h2>
+                            <a href="" target="_blank">
+                                <img src="github2.png" class="icon" alt="Github">
+                            </a>
+                            <a href="#" target="_blank">
+                                <img src="yt.jpeg" class="icon" alt="">
+
+                             <a href="#" target="_blank">
+                                <img src="fiveer.png" class="icon" alt="">
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
